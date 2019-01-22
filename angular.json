@@ -2,5 +2,169 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "jb-ui-lib-ng7": {
+      "root": "projects/jb-ui-lib-ng7",
+      "sourceRoot": "projects/jb-ui-lib-ng7/src",
+      "projectType": "library",
+      "prefix": "jb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/jb-ui-lib-ng7/tsconfig.lib.json",
+            "project": "projects/jb-ui-lib-ng7/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/jb-ui-lib-ng7/src/test.ts",
+            "tsConfig": "projects/jb-ui-lib-ng7/tsconfig.spec.json",
+            "karmaConfig": "projects/jb-ui-lib-ng7/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/jb-ui-lib-ng7/tsconfig.lib.json",
+              "projects/jb-ui-lib-ng7/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "jb-ui-lib-ng7-testApp": {
+      "root": "projects/jb-ui-lib-ng7-testApp/",
+      "sourceRoot": "projects/jb-ui-lib-ng7-testApp/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/jb-ui-lib-ng7-testApp",
+            "index": "projects/jb-ui-lib-ng7-testApp/src/index.html",
+            "main": "projects/jb-ui-lib-ng7-testApp/src/main.ts",
+            "polyfills": "projects/jb-ui-lib-ng7-testApp/src/polyfills.ts",
+            "tsConfig": "projects/jb-ui-lib-ng7-testApp/tsconfig.app.json",
+            "assets": [
+              "projects/jb-ui-lib-ng7-testApp/src/favicon.ico",
+              "projects/jb-ui-lib-ng7-testApp/src/assets"
+            ],
+            "styles": [
+              "projects/jb-ui-lib-ng7-testApp/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/jb-ui-lib-ng7-testApp/src/environments/environment.ts",
+                  "with": "projects/jb-ui-lib-ng7-testApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "jb-ui-lib-ng7-testApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "jb-ui-lib-ng7-testApp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "jb-ui-lib-ng7-testApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/jb-ui-lib-ng7-testApp/src/test.ts",
+            "polyfills": "projects/jb-ui-lib-ng7-testApp/src/polyfills.ts",
+            "tsConfig": "projects/jb-ui-lib-ng7-testApp/tsconfig.spec.json",
+            "karmaConfig": "projects/jb-ui-lib-ng7-testApp/karma.conf.js",
+            "styles": [
+              "projects/jb-ui-lib-ng7-testApp/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/jb-ui-lib-ng7-testApp/src/favicon.ico",
+              "projects/jb-ui-lib-ng7-testApp/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/jb-ui-lib-ng7-testApp/tsconfig.app.json",
+              "projects/jb-ui-lib-ng7-testApp/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "jb-ui-lib-ng7-testApp-e2e": {
+      "root": "projects/jb-ui-lib-ng7-testApp-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/jb-ui-lib-ng7-testApp-e2e/protractor.conf.js",
+            "devServerTarget": "jb-ui-lib-ng7-testApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jb-ui-lib-ng7-testApp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/jb-ui-lib-ng7-testApp-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "jb-ui-lib-ng7"
 }

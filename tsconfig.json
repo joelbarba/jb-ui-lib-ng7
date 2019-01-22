@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "jb-ui-lib-ng7": [
+        "dist/jb-ui-lib-ng7"
+      ],
+      "jb-ui-lib-ng7/*": [
+        "dist/jb-ui-lib-ng7/*"
+      ]
+    }
   }
 }
