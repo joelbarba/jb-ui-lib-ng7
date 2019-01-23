@@ -8,10 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build_lib": "ng build jb-ui-lib-ng7",
-    "copy_md": "cp ./README.md ./dist/jb-ui-lib-ng7/",
-    "npm_pack": "cd dist/jb-ui-lib-ng7 && npm pack",
-    "pack_all": "npm run build_lib && npm run copy_md && npm run npm_pack"
+    "build_lib" : "ng build jb-ui-lib-ng7",
+    "copy_md"   : "cp ./README.md ./dist/jb-ui-lib-ng7/",
+    "npm_pack"  : "cd dist/jb-ui-lib-ng7 && npm pack",
+    "publish"   : "npm publish ./dist/jb-ui-lib-ng7/jb-ui-lib-ng7-0.0.2.tgz",
+    "pack_all"  : "npm run build_lib && npm run copy_md && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
