@@ -3,15 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4300",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build jb-ui-lib-ng7",
-    "copy_readme": "copy ./README.md ./dist/jb-ui-lib-ng7/",
+    "copy_md": "cp ./README.md ./dist/jb-ui-lib-ng7/",
     "npm_pack": "cd dist/jb-ui-lib-ng7 && npm pack",
-    "package": "npm run build_lib && npm run npm_pack"
+    "pack_all": "npm run build_lib && npm run copy_md && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +26,7 @@
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "webpack-dev-server": "^3.1.11",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

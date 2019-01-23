@@ -1,8 +1,20 @@
 {
   "name": "jb-ui-lib-ng7",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "UI Library for Angular 7",
   "peerDependencies": {
     "@angular/common": "^7.1.0",
     "@angular/core": "^7.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelbarba/jb-ui-lib-ng7.git"
+  },
+  "keywords": [
+    "Angular",
+    "UI"
+  ],
+  "author": "Joel Barba",
+  "license": "ISC",
+  "homepage": "https://github.com/joelbarba/jb-ui-lib-ng7#readme"
 }
